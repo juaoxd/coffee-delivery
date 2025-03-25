@@ -6,7 +6,7 @@ export const HeroSection = styled.section`
   align-items: flex-start;
   justify-content: center;
   gap: 3.5rem;
-  height: calc(100vh - 104px);
+  height: calc(100vh - 215px);
   padding: 5.75rem 10rem;
   margin: 0 auto;
 
@@ -65,7 +65,7 @@ export const ListContainer = styled.ul`
 export const ListItem = styled.li<ListItemProps>`
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 0.75rem;
 
   font-size: 1rem;
@@ -81,4 +81,28 @@ export const ListItem = styled.li<ListItemProps>`
     border-radius: 50%;
     line-height: normal;
   }
+`
+
+export const CoffeeSection = styled.section`
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding: 0 10rem;
+
+  h1 {
+    color: ${props => props.theme['base-subtitle']};
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 2rem;
+    line-height: 1.3;
+    font-weight: bolder;
+  }
+`
+
+export const CoffeeList = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-row-gap: 2.5rem;
+  grid-column-gap: 2rem;
+  margin-top: 54px;
 `
