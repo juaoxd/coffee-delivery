@@ -96,6 +96,12 @@ export const CardButton = styled.button`
   border: 0;
   padding: 0.5rem;
   border-radius: 6px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: ${props => props.theme["purple"]};
+    transition: background-color 0.2s;
+  }
 `
 
 export const CardActions = styled.div`

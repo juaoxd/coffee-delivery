@@ -4,7 +4,11 @@ export const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem 10rem;
+  padding: 2rem 0;
+
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
 `
 
 export const NavContainer = styled.nav`

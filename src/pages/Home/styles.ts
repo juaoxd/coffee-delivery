@@ -2,6 +2,12 @@ import styled from 'styled-components'
 import homeBackground from '../../assets/home-background.svg'
 
 export const HeroSection = styled.section`
+  background: url(${homeBackground});
+  background-repeat: no-repeat;
+  background-size: cover;
+`
+
+export const HeroContent = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -10,6 +16,9 @@ export const HeroSection = styled.section`
   padding: 5.75rem 10rem;
   margin: 0 auto;
 
+  width: 100%;
+  max-width: 1120px;
+
   aside {
     max-width: 588px;
     width: 100%;
@@ -17,10 +26,6 @@ export const HeroSection = styled.section`
     flex-direction: column;
     gap: 4.125rem;
   }
-  
-  background: url(${homeBackground});
-  background-repeat: no-repeat;
-  background-size:  cover;
 `
 
 export const TextContainer = styled.div`
@@ -43,6 +48,7 @@ export const TextContainer = styled.div`
     color: ${props => props.theme['base-subtitle']};
   }
 `
+
  
 const LOGO_BACKGROUND_COLORS = {
   yellow: 'yellow',
@@ -65,7 +71,7 @@ export const ListContainer = styled.ul`
 export const ListItem = styled.li<ListItemProps>`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0.75rem;
 
   font-size: 1rem;
@@ -88,7 +94,9 @@ export const CoffeeSection = styled.section`
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-  padding: 0 10rem;
+  width: 100%;
+  max-width: 1120px;
+  margin: auto;
 
   h1 {
     color: ${props => props.theme['base-subtitle']};
@@ -104,5 +112,7 @@ export const CoffeeList = styled.div`
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-row-gap: 2.5rem;
   grid-column-gap: 2rem;
-  margin-top: 54px;
+  margin: 54px auto;
+  width: 100%;
+  max-width: 1120px;
 `
