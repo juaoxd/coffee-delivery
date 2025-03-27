@@ -113,6 +113,7 @@ export const InputButton = styled.button`
   border: 0;
   color: ${props => props.theme.purple};
   background: transparent;
+  cursor: pointer;
 `
 
 export const Counter = styled.div`
