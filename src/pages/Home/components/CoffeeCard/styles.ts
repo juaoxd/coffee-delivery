@@ -125,3 +125,10 @@ export const Counter = styled.div`
   gap: 0.5rem;
   max-width: 72px;
 `
+
+export const TagList = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+`

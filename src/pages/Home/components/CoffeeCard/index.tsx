@@ -1,9 +1,15 @@
 import { Minus, Plus, ShoppingCartSimple } from "phosphor-react";
-import { CardActions, CardButton, CardContainer, CardDescription, CardInput, CardTag, CardTitle, Counter, InputButton, NumberInput } from "./styles";
-import cafeExpressoImg from '../../../../assets/expresso.svg'
+import { CardActions, CardButton, CardContainer, CardDescription, CardInput, CardTag, CardTitle, Counter, InputButton, NumberInput, TagList } from "./styles";
 import { useState } from "react";
 
-export function CoffeeCard() {
+interface CoffeeCardProps {
+  imgUrl: string
+  tags: string[]
+  title: string
+  description: string
+}
+
+export function CoffeeCard({ imgUrl, tags, title, description }: CoffeeCardProps) {
   const [quantity, setQuantity] = useState(1)
 
   function handleRemoveItem() {
@@ -22,14 +28,14 @@ export function CoffeeCard() {
     })
   }
 
-  console.log(quantity)
-
   return (
     <CardContainer>
-      <img src={cafeExpressoImg} alt="Cafe expresso" />
-      <CardTag>TRADICIONAL</CardTag>
-      <CardTitle>Expresso Tradicional</CardTitle>
-      <CardDescription>O tradicional café feito com água quente e grãos moídos</CardDescription>
+      <img src={imgUrl} alt="Cafe expresso" />
+      <TagList>
+        { tags.map((tag) => <CardTag>{tag.toUpperCase()}</CardTag>) }
+      </TagList>
+      <CardTitle>{title}</CardTitle>
+      <CardDescription>{description}</CardDescription>
       <CardInput>
         <label>
           <span>R$</span> 9,90

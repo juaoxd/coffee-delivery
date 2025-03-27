@@ -2,6 +2,7 @@ import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
 import homeImage from '../../assets/home-image.svg'
 import { CoffeeList, CoffeeSection, HeroContent, HeroSection, ListContainer, ListItem, TextContainer } from './styles'
 import { CoffeeCard } from './components/CoffeeCard'
+import { coffees } from '../../coffees'
 
 export function Home() {
   return (
@@ -46,20 +47,10 @@ export function Home() {
       <CoffeeSection>
         <h1>Nossos cafés</h1>
         <CoffeeList>
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
+          { coffees.map((coffee) => {
+              return <CoffeeCard imgUrl={coffee.imageUrl} tags={coffee.tags} title={coffee.title} description={coffee.description} />
+            }
+          )}
         </CoffeeList>
       </CoffeeSection>
     </>
