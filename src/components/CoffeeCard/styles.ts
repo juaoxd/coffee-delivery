@@ -68,25 +68,6 @@ export const CardInput = styled.div`
   }
 `
 
-export const NumberInput = styled.input`
-  background-color: ${props => props.theme["base-input"]};
-  width: 20px;
-  height: 21px;
-  text-align: center;
-  border: 0;
-
-
-  &::-webkit-inner-spin-button{
-    -webkit-appearance: none; 
-    margin: 0; 
-  }
-
-  &::-webkit-outer-spin-button{
-    -webkit-appearance: none; 
-    margin: 0; 
-  }
-`
-
 export const CardButton = styled.button`
   display: flex;
   align-items: center;
@@ -107,24 +88,6 @@ export const CardButton = styled.button`
 export const CardActions = styled.div`
   display: flex;
   gap: 0.5rem;
-`
-
-export const InputButton = styled.button`
-  border: 0;
-  color: ${props => props.theme.purple};
-  background: transparent;
-  cursor: pointer;
-`
-
-export const Counter = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: ${props => props.theme["base-input"]};
-  padding: 0.5rem;
-  border-radius: 6px;
-  gap: 0.5rem;
-  max-width: 72px;
 `
 
 export const TagList = styled.div`

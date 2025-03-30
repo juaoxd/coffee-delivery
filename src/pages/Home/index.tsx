@@ -1,7 +1,7 @@
 import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
 import homeImage from '../../assets/home-image.svg'
 import { CoffeeList, CoffeeSection, HeroContent, HeroSection, ListContainer, ListItem, TextContainer } from './styles'
-import { CoffeeCard } from './components/CoffeeCard'
+import { CoffeeCard } from '../../components/CoffeeCard'
 import { coffees } from '../../coffees'
 
 export function Home() {

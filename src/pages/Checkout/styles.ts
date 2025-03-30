@@ -4,6 +4,8 @@ export const CheckoutContainer = styled.main`
   width: 100%;
   max-width: 1120px;
   margin: 0 auto;
+  display: flex;
+  gap: 2rem;
 `
 
 export const OrderContainer = styled.div`
@@ -14,7 +16,7 @@ export const OrderContainer = styled.div`
 
 export const Title = styled.span`
   font-family: 'Baloo 2', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.125rem;
   line-height: 1.3;
   font-weight: bold;
 `
@@ -141,3 +143,99 @@ export const PaymentMethodButton = styled.button<PaymentMethodButtonProps>`
     transition: background-color 0.2s;
   }
 `
+
+export const SelectedCoffees = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+`
+
+export const ConfirmOrder = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2.5rem;
+
+  background-color: ${props => props.theme["base-card"]};
+  width: 448px;
+  border-top-right-radius: 44px;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 44px;
+  border-bottom-right-radius: 6px;
+`
+
+export const CoffeeItemPrice = styled.span`
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.3;
+`
+
+export const CoffeeItem = styled.div`
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+
+  img {
+    width: 64px;
+    height: 64px;
+  }
+
+  div:first-child {
+    display: flex;
+    gap: 1.25rem;
+  }
+`
+
+export const Details = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  span:first-child {
+    font-size: 1rem;
+    line-height: 1.3;
+    color: ${props => props.theme["base-subtitle"]};
+  }
+`
+
+export const Actions = styled.div`
+  display: flex;
+  gap: 0.5rem;
+`
+
+export const Button = styled.button`
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 6px;
+  text-transform: uppercase;
+  color: ${props => props.theme["base-text"]};
+  font-size: 0.75rem;
+  line-height: 1.3;
+
+  background-color: ${props => props.theme["base-button"]};
+
+  svg {
+    color: ${props => props.theme.purple};
+  }
+
+  &:hover {
+    background-color: ${props => props.theme["base-hover"]};
+    cursor: pointer;
+
+    transition: background-color 0.2s;
+  }
+`
+
+export const Divider = styled.hr`
+  border: none;
+  height: 1px;
+  background-color: ${(props) => props.theme["base-button"]};
+  width: 100%;
+`;

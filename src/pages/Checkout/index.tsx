@@ -1,7 +1,10 @@
-import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from "phosphor-react";
-import { CheckoutContainer, CheckoutDeliveryAddressForm, DeliveryAddressContent, DeliveryAddressSection, OrderContainer, PaymentContainer, PaymentContent, PaymentMethod, PaymentMethodButton, Title } from "./styles";
-import { TextInput } from "../components/TextInput";
+import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money, Trash } from "phosphor-react";
+import { Actions, Button, CheckoutContainer, CheckoutDeliveryAddressForm, CoffeeItem, CoffeeItemPrice, ConfirmOrder, DeliveryAddressContent, DeliveryAddressSection, Details, Divider, OrderContainer, PaymentContainer, PaymentContent, PaymentMethod, PaymentMethodButton, SelectedCoffees, Title } from "./styles";
+import { TextInput } from "../../components/TextInput";
 import { useState } from "react";
+
+import cafeImg from '../../assets/expresso.svg'
+import { InputNumber } from "../../components/InputNumber";
 
 export function Checkout() {
   const [paymentMethod, setPaymentMethod] = useState<'credit' | 'debit' | 'cash' | null>(null)
@@ -54,6 +57,46 @@ export function Checkout() {
             </PaymentMethod>
         </PaymentContainer>
       </OrderContainer>
+
+      <SelectedCoffees>
+        <Title>Cafés selecionados</Title>
+        <ConfirmOrder>
+          <CoffeeItem>
+            <div>
+              <img src={cafeImg}  />
+              <Details>
+                <span>Expresso Tradicional</span>
+                <Actions>
+                  <InputNumber />
+                  <Button>
+                    <Trash size={16} />
+                    Remover
+                  </Button>
+                </Actions>
+              </Details>
+            </div>
+            <CoffeeItemPrice>R$ 9,90</CoffeeItemPrice>
+          </CoffeeItem>
+          <Divider />
+          <CoffeeItem>
+            <div>
+              <img src={cafeImg}  />
+              <Details>
+                <span>Expresso Tradicional</span>
+                <Actions>
+                  <InputNumber />
+                  <Button>
+                    <Trash size={16} />
+                    Remover
+                  </Button>
+                </Actions>
+              </Details>
+            </div>
+            <CoffeeItemPrice>R$ 9,90</CoffeeItemPrice>
+          </CoffeeItem>
+          <Divider />
+        </ConfirmOrder>
+      </SelectedCoffees>
     </CheckoutContainer>
   )
 }
