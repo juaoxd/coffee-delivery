@@ -1,5 +1,5 @@
 import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money, Trash } from "phosphor-react";
-import { Actions, Button, CheckoutContainer, CheckoutDeliveryAddressForm, CoffeeItem, CoffeeItemPrice, ConfirmOrder, DeliveryAddressContent, DeliveryAddressSection, Details, Divider, OrderContainer, PaymentContainer, PaymentContent, PaymentMethod, PaymentMethodButton, SelectedCoffees, Title } from "./styles";
+import { Actions, Button, CheckoutContainer, CheckoutDeliveryAddressForm, CoffeeItem, CoffeeItemPrice, ConfirmOrder, ConfirmOrderButton, DeliveryAddressContent, DeliveryAddressSection, Details, Divider, OrderContainer, OrderSummary, OrderTotalPrice, PaymentContainer, PaymentContent, PaymentMethod, PaymentMethodButton, SelectedCoffees, Title } from "./styles";
 import { TextInput } from "../../components/TextInput";
 import { useState } from "react";
 
@@ -77,7 +77,9 @@ export function Checkout() {
             </div>
             <CoffeeItemPrice>R$ 9,90</CoffeeItemPrice>
           </CoffeeItem>
+
           <Divider />
+
           <CoffeeItem>
             <div>
               <img src={cafeImg}  />
@@ -94,7 +96,29 @@ export function Checkout() {
             </div>
             <CoffeeItemPrice>R$ 9,90</CoffeeItemPrice>
           </CoffeeItem>
+
           <Divider />
+
+          <OrderSummary>
+            <div>
+             Total de itens
+              <span>R$ 29,70</span>
+            </div>
+
+            <div>
+              Entrega
+              <span>R$ 3,50</span>
+            </div>
+
+            <OrderTotalPrice>
+              Total
+              <span>R$ 33,20</span>
+            </OrderTotalPrice>
+          </OrderSummary>
+
+          <ConfirmOrderButton>
+            Confirmar pedido
+          </ConfirmOrderButton>
         </ConfirmOrder>
       </SelectedCoffees>
     </CheckoutContainer>

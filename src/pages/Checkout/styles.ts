@@ -239,3 +239,55 @@ export const Divider = styled.hr`
   background-color: ${(props) => props.theme["base-button"]};
   width: 100%;
 `;
+
+export const OrderSummary = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+
+  color: ${props => props.theme["base-text"]};
+  font-size: 0.875rem;
+  line-height: 1.3;
+
+  span {
+    font-size: 1rem;
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+`
+
+export const OrderTotalPrice = styled.div`
+  color: ${props => props.theme["base-subtitle"]};
+  font-size: 1.25rem;
+  font-weight: bold;
+
+  span {
+    font-size: 1.25rem;
+  }
+`
+
+export const ConfirmOrderButton = styled.button`
+  background-color: ${props => props.theme.yellow};
+  color: ${props => props.theme.white};
+  width: 100%;
+  padding: 0.75rem;
+
+  font-size: 0.875rem;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  border: 0;
+  border-radius: 6px;
+
+  &:hover {
+    background-color: ${props => props.theme["yellow-dark"]};
+    cursor: pointer;
+
+    transition: background-color 0.2s;
+  }
+`
