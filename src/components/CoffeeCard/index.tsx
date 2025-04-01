@@ -7,9 +7,15 @@ interface CoffeeCardProps {
   tags: string[]
   title: string
   description: string
+  price: number
 }
 
-export function CoffeeCard({ imgUrl, tags, title, description }: CoffeeCardProps) {
+export function CoffeeCard({ imgUrl, tags, title, description, price }: CoffeeCardProps) {
+  const formatedPrice = new Intl.NumberFormat('pt-BR', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(price)
+
   return (
     <CardContainer>
       <img src={imgUrl} alt="Cafe expresso" />
@@ -20,7 +26,7 @@ export function CoffeeCard({ imgUrl, tags, title, description }: CoffeeCardProps
       <CardDescription>{description}</CardDescription>
       <CardInput>
         <label>
-          <span>R$</span> 9,90
+          <span>R$</span> {formatedPrice}
         </label>
         <CardActions>
           <InputNumber />
