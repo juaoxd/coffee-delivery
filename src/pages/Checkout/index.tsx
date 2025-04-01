@@ -23,13 +23,13 @@ import {
   Title,
 } from './styles'
 import { TextInput } from '../../components/TextInput'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 
-import cafeImg from '../../assets/expresso.svg'
 import { InputNumber } from '../../components/InputNumber'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { CartContext } from '../../contexts/CartContext'
 
 const deliveryAddressFormSchema = z.object({
   cep: z.string().length(9),
@@ -65,6 +65,8 @@ export function Checkout() {
     console.log(data)
     reset()
   }
+
+  const { coffees, updateQuantity, quantities } = useContext(CartContext)
 
   return (
     <CheckoutContainer>
@@ -118,43 +120,29 @@ export function Checkout() {
       <SelectedCoffees>
         <Title>Cafés selecionados</Title>
         <ConfirmOrder>
-          <CoffeeItem>
-            <div>
-              <img src={cafeImg} />
-              <Details>
-                <span>Expresso Tradicional</span>
-                <Actions>
-                  <InputNumber />
-                  <Button>
-                    <Trash size={16} />
-                    Remover
-                  </Button>
-                </Actions>
-              </Details>
-            </div>
-            <CoffeeItemPrice>R$ 9,90</CoffeeItemPrice>
-          </CoffeeItem>
-
-          <Divider />
-
-          <CoffeeItem>
-            <div>
-              <img src={cafeImg} />
-              <Details>
-                <span>Expresso Tradicional</span>
-                <Actions>
-                  <InputNumber />
-                  <Button>
-                    <Trash size={16} />
-                    Remover
-                  </Button>
-                </Actions>
-              </Details>
-            </div>
-            <CoffeeItemPrice>R$ 9,90</CoffeeItemPrice>
-          </CoffeeItem>
-
-          <Divider />
+          {coffees.map((coffee) => {
+            return (
+              <>
+                <CoffeeItem>
+                  <div>
+                    <img src={coffee.imgUrl} />
+                    <Details>
+                      <span>{coffee.title}</span>
+                      <Actions>
+                        <InputNumber quantity={quantities[coffee.id]} updateQuantity={updateQuantity} coffeeId={coffee.id}/>
+                        <Button>
+                          <Trash size={16} />
+                          Remover
+                        </Button>
+                      </Actions>
+                    </Details>
+                  </div>
+                  <CoffeeItemPrice>R$ {(coffee.price * quantities[coffee.id]).toFixed(2).replace('.', ',')}</CoffeeItemPrice>
+                </CoffeeItem>
+                <Divider />
+              </>
+            )
+          })}
 
           <OrderSummary>
             <div>

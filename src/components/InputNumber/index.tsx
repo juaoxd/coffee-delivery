@@ -1,24 +1,24 @@
 import { Minus, Plus } from "phosphor-react"
-import { useState } from "react"
 import { Counter, InputButton } from "./styles"
 
-export function InputNumber() {
-  const [quantity, setQuantity] = useState(1)
-  
+interface InputNumberProps {
+  quantity: number
+  coffeeId: string
+  updateQuantity: (id: string, newQuantity: number) => void
+}
+
+export function InputNumber({ quantity, updateQuantity, coffeeId }: InputNumberProps) {
     function handleRemoveItem() {
       if (quantity === 1) {
         return 1
       }
+
   
-      setQuantity(state => {
-        return state - 1
-      })
+      updateQuantity(coffeeId, quantity - 1)
     }
   
     function handleAddItem() {
-      setQuantity(state => {
-        return state + 1
-      })
+      updateQuantity(coffeeId, quantity + 1)
     }
 
   return (

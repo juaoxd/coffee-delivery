@@ -48,7 +48,7 @@ export function Home() {
         <h1>Nossos cafés</h1>
         <CoffeeList>
           { coffees.map((coffee) => {
-              return <CoffeeCard imgUrl={coffee.imageUrl} tags={coffee.tags} title={coffee.title} description={coffee.description} price={coffee.price}/>
+              return <CoffeeCard key={coffee.id} id={coffee.id} imgUrl={coffee.imageUrl} tags={coffee.tags} title={coffee.title} description={coffee.description} price={coffee.price}/>
             }
           )}
         </CoffeeList>

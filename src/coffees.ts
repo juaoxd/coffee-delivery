@@ -15,6 +15,7 @@ import irlandes from './assets/irlandes.svg'
 
 export const coffees = [
   {
+    id: 'cafe-1',
     imageUrl: expresso,
     tags: ['Tradicional'],
     title: 'Expresso Tradicional',
@@ -22,6 +23,7 @@ export const coffees = [
     price: 9.90
   },
   {
+    id: 'cafe-2',
     imageUrl: americano,
     tags: ['Tradicional'],
     title: 'Expresso Americano',
@@ -29,6 +31,7 @@ export const coffees = [
     price: 9.90
   },
   {
+    id: 'cafe-3',
     imageUrl: cremoso,
     tags: ['Tradicional'],
     title: 'Expresso Cremoso',
@@ -36,6 +39,7 @@ export const coffees = [
     price: 9.90
   },
   {
+    id: 'cafe-4',
     imageUrl: gelado,
     tags: ['Tradicional', 'Gelado'],
     title: 'Expresso Gelado',
@@ -43,6 +47,7 @@ export const coffees = [
     price: 9.90
   },
   {
+    id: 'cafe-5',
     imageUrl: cafeComLeite,
     tags: ['Tradicional', 'Com Leite'],
     title: 'Café com Leite',
@@ -50,6 +55,7 @@ export const coffees = [
     price: 9.90
   },
   {
+    id: 'cafe-6',
     imageUrl: latte,
     tags: ['Tradicional', 'Com Leite'],
     title: 'Latte',
@@ -57,6 +63,7 @@ export const coffees = [
     price: 9.90
   },
   {
+    id: 'cafe-7',
     imageUrl: capuccino,
     tags: ['Tradicional', 'Com Leite'],
     title: 'Capuccino',
@@ -64,6 +71,7 @@ export const coffees = [
     price: 9.90
   },
   {
+    id: 'cafe-8',
     imageUrl: macchiato,
     tags: ['Tradicional', 'Com Leite'],
     title: 'Macchiato',
@@ -71,6 +79,7 @@ export const coffees = [
     price: 9.90
   },
   {
+    id: 'cafe-9',
     imageUrl: mocaccino,
     tags: ['Tradicional', 'Com Leite'],
     title: 'Mocaccino',
@@ -78,6 +87,7 @@ export const coffees = [
     price: 9.90
   },
   {
+    id: 'cafe-10',
     imageUrl: chocolateQuente,
     tags: ['Especial', 'Com Leite'],
     title: 'Chocolate Quente',
@@ -85,6 +95,7 @@ export const coffees = [
     price: 9.90
   },
   {
+    id: 'cafe-11',
     imageUrl: cubano,
     tags: ['Especial', 'Alcoólico', 'Gelado'],
     title: 'Cubano',
@@ -92,6 +103,7 @@ export const coffees = [
     price: 9.90
   },
   {
+    id: 'cafe-12',
     imageUrl: havaiano,
     tags: ['Especial'],
     title: 'Havaiano',
@@ -99,6 +111,7 @@ export const coffees = [
     price: 9.90
   },
   {
+    id: 'cafe-13',
     imageUrl: arabe,
     tags: ['Especial'],
     title: 'Árabe',
@@ -106,6 +119,7 @@ export const coffees = [
     price: 9.90
   },
   {
+    id: 'cafe-14',
     imageUrl: irlandes,
     tags: ['Especial', 'Alcoólico'],
     title: 'Irlandês',
