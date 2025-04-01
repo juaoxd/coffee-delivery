@@ -29,13 +29,12 @@ export function CoffeeCard({ id, imgUrl, tags, title, description, price }: Coff
   }).format(price)
 
   const { coffees, setCoffees, quantities, updateQuantity } = useContext(CartContext)
-
+  
   function handleAddCoffeeToCart() {
     const coffee = coffees.find((item) => item.id === id)
+    const quantity = quantities[id]
 
     if (coffee) {
-      const quantity = quantities[coffee.id]
-
       const updatedCoffees = coffees.map((item) => {
         if (item.id === id) {
           item.quantity += quantity
@@ -51,7 +50,7 @@ export function CoffeeCard({ id, imgUrl, tags, title, description, price }: Coff
         imgUrl,
         title,
         price,
-        quantity: 1,
+        quantity
       }
 
       setCoffees((state) => [...state, newCoffee])
