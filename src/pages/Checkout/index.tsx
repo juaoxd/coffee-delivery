@@ -30,21 +30,26 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { CartContext } from '../../contexts/CartContext'
+import { useNavigate } from 'react-router-dom'
 
 const deliveryAddressFormSchema = z.object({
   cep: z.string().length(9),
-  street: z.string(),
-  number: z.string(),
+  street: z.string().min(1),
+  number: z.string().min(1),
   fullAddress: z.string().optional(),
-  neighborhood: z.string(),
-  city: z.string(),
-  state: z.string(),
+  neighborhood: z.string().min(1),
+  city: z.string().min(1),
+  state: z.string().min(1),
 })
 
 type DeliveryAddressForm = z.infer<typeof deliveryAddressFormSchema>
 
 export function Checkout() {
+  const navigate = useNavigate()
+
   const [paymentMethod, setPaymentMethod] = useState<'credit' | 'debit' | 'cash' | null>(null)
+
+  const { coffees, updateQuantity, setOrder } = useContext(CartContext)
 
   const deliveryAddressForm = useForm<DeliveryAddressForm>({
     resolver: zodResolver(deliveryAddressFormSchema),
@@ -59,14 +64,23 @@ export function Checkout() {
     },
   })
 
-  const { handleSubmit, register, reset } = deliveryAddressForm
-
+  const { handleSubmit, register } = deliveryAddressForm
+  
   function handleCreateOrder(data: DeliveryAddressForm) {
-    console.log(data)
-    reset()
+    if (!paymentMethod) {
+      return
+    }
+
+    setOrder({
+      address: data,
+      paymentMethod
+    })
+
+    setTimeout(() => {
+      navigate('/success')
+    }, 500)
   }
 
-  const { coffees, updateQuantity } = useContext(CartContext)
 
   const deliveryFee = 3.50
 
