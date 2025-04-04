@@ -1,5 +1,5 @@
-import { Minus, Plus } from "phosphor-react"
-import { Counter, InputButton } from "./styles"
+import { Minus, Plus } from 'phosphor-react'
+import { Counter, InputButton } from './styles'
 
 interface InputNumberProps {
   quantity: number
@@ -8,27 +8,26 @@ interface InputNumberProps {
 }
 
 export function InputNumber({ quantity, updateQuantity, coffeeId }: InputNumberProps) {
-    function handleRemoveItem() {
-      if (quantity === 1) {
-        return 1
-      }
+  function handleRemoveItem() {
+    if (quantity === 1) {
+      return 1
+    }
 
-  
-      updateQuantity(coffeeId, quantity - 1)
-    }
-  
-    function handleAddItem() {
-      updateQuantity(coffeeId, quantity + 1)
-    }
+    updateQuantity(coffeeId, quantity - 1)
+  }
+
+  function handleAddItem() {
+    updateQuantity(coffeeId, quantity + 1)
+  }
 
   return (
     <Counter>
       <InputButton onClick={handleRemoveItem}>
-        <Minus size={12} weight="bold" />
+        <Minus size={12} weight='bold' />
       </InputButton>
       <span>{quantity}</span>
       <InputButton onClick={handleAddItem}>
-        <Plus size={12} weight="bold" />
+        <Plus size={12} weight='bold' />
       </InputButton>
     </Counter>
   )

@@ -66,7 +66,30 @@ export function Checkout() {
     reset()
   }
 
-  const { coffees, updateQuantity, quantities } = useContext(CartContext)
+  const { coffees, updateQuantity } = useContext(CartContext)
+
+  const deliveryFee = 3.50
+
+  const deliveryFeeFormatted = new Intl.NumberFormat('pt-BR', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(deliveryFee)
+
+  let coffeesTotalPrice = 0;
+
+  for (const coffee of coffees) {
+    coffeesTotalPrice += (coffee.price *  coffee.quantity)
+  }
+
+  const formattedCoffeesPrice = new Intl.NumberFormat('pt-BR', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(coffeesTotalPrice)
+
+  const totalOrderPrice = new Intl.NumberFormat('pt-BR', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(coffeesTotalPrice + deliveryFee)
 
   return (
     <CheckoutContainer>
@@ -129,7 +152,7 @@ export function Checkout() {
                     <Details>
                       <span>{coffee.title}</span>
                       <Actions>
-                        <InputNumber quantity={quantities[coffee.id]} updateQuantity={updateQuantity} coffeeId={coffee.id}/>
+                        <InputNumber quantity={coffee.quantity} updateQuantity={updateQuantity} coffeeId={coffee.id}/>
                         <Button>
                           <Trash size={16} />
                           Remover
@@ -137,7 +160,7 @@ export function Checkout() {
                       </Actions>
                     </Details>
                   </div>
-                  <CoffeeItemPrice>R$ {(coffee.price * quantities[coffee.id]).toFixed(2).replace('.', ',')}</CoffeeItemPrice>
+                  <CoffeeItemPrice>R$ {(coffee.price * coffee.quantity).toFixed(2).replace('.', ',')}</CoffeeItemPrice>
                 </CoffeeItem>
                 <Divider />
               </>
@@ -147,17 +170,17 @@ export function Checkout() {
           <OrderSummary>
             <div>
               Total de itens
-              <span>R$ 29,70</span>
+              <span>R$ {formattedCoffeesPrice}</span>
             </div>
 
             <div>
               Entrega
-              <span>R$ 3,50</span>
+              <span>R$ {deliveryFeeFormatted}</span>
             </div>
 
             <OrderTotalPrice>
               Total
-              <span>R$ 33,20</span>
+              <span>R$ {totalOrderPrice}</span>
             </OrderTotalPrice>
           </OrderSummary>
 

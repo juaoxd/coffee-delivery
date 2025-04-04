@@ -32,18 +32,16 @@ export function CoffeeCard({ id, imgUrl, tags, title, description, price }: Coff
   
   function handleAddCoffeeToCart() {
     const coffee = coffees.find((item) => item.id === id)
-    const quantity = quantities[id]
+    const quantity = quantities[id] ? quantities[id] : 1
 
     if (coffee) {
-      const updatedCoffees = coffees.map((item) => {
-        if (item.id === id) {
-          item.quantity += quantity
-        }
+      const updatedCoffees = coffees.map((item) =>
+        item.id === id ? { ...item, quantity: item.quantity + quantity } : item
+      );
 
-        return item
-      })
-
-      setCoffees(updatedCoffees)
+      console.log(updatedCoffees)
+      
+      setCoffees(updatedCoffees);
     } else {
       const newCoffee = {
         id,
@@ -72,7 +70,7 @@ export function CoffeeCard({ id, imgUrl, tags, title, description, price }: Coff
           <span>R$</span> {formatedPrice}
         </label>
         <CardActions>
-          <InputNumber quantity={quantities[id] ? quantities[id] : 1} updateQuantity={updateQuantity} coffeeId={id}/>
+          <InputNumber quantity={quantities[id] ?? 1} updateQuantity={updateQuantity} coffeeId={id}/>
           <CardButton onClick={handleAddCoffeeToCart}>
             <ShoppingCartSimple weight='fill' size={22} />
           </CardButton>
